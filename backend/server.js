@@ -31,6 +31,9 @@ if (!fs.existsSync("./public/profile")) {
 }
 
 const app = express();
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
 const port = 4444;
 
 app.use(bodyParser.json()); // support json encoded bodies

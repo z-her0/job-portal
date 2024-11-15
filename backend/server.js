@@ -7,12 +7,15 @@ const fs = require("fs");
 
 // MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/jobPortal", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
+  .connect(
+    "mongodb+srv://new_user_987:fEFKqqT4RvGtn2bU@jobportalapi.8otfa.mongodb.net/jobPortal?retryWrites=true&w=majority&appName=jobportalapi",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
   .then((res) => console.log("Connected to DB"))
   .catch((err) => console.log(err));
 
@@ -34,7 +37,11 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // Setting up middlewares
-app.use(cors());
+app.use(cors({
+  origin : ["http://deploy-job-portal.vercel.app"],
+  methods : ["POST", "GET"],
+  credentials : true
+}));
 app.use(express.json());
 app.use(passportConfig.initialize());
 

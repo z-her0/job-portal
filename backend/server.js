@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // Setting up middlewares
 app.use(cors({
-  origin : ["http://deploy-job-portal.vercel.app"],
+  origin : ["http://deploy-job-portal-fe.vercel.app"],
   methods : ["POST", "GET"],
   credentials : true
 }));

@@ -1,5 +1,4 @@
-export const server = "job-portal-api-bay.vercel.app
-";
+export const server = "job-portal-api-bay.vercel.app";
 
 const apiList = {
   login: `${server}/auth/login`,
